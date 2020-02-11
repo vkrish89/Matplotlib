@@ -1,0 +1,35 @@
+#Histogram used for distributed data
+#Different from bar chart which plots based on the bins or ranges
+#Bins 
+#X axis shows the ages
+#Y axis shows the ranges or no of count within the ranges
+
+import pandas as pd
+import csv
+import numpy as np 
+from matplotlib import pyplot as plt
+
+plt.style.use('fivethirtyeight')
+
+data = pd.read_csv('data3.csv')
+ids = data['Responder_id']
+Ages = data['Age']
+
+#Sample input data
+#ages = [10,14,35,38,35,36,40,60,50,78,90]
+bins = [10,20,30,40,50,60,70,80,90,100]
+
+#log - gives the lograthmic value in y axis
+plt.hist(Ages,bins=bins,edgecolor='black',log=True)
+
+median = 30
+plt.axvline(median,color='Red',label='Agemedian')
+plt.legend()
+
+plt.title('Voters count')
+plt.xlabel('Ages')
+plt.ylabel('Total people count')
+
+plt.tight_layout()
+
+plt.show()
