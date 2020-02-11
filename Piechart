@@ -1,0 +1,28 @@
+
+import matplotlib.pyplot as plt 
+
+plt.style.use("seaborn")
+
+#colours
+#Blue 	= #008fd5
+#Red 	= #fc4f30
+#Yellow = #e5ae37
+#Green 	= #6d904f
+
+# Language Popularity
+slices = [59219, 55466, 47544, 36443, 35917]
+labels = ['JavaScript', 'HTML/CSS', 'SQL', 'Python', 'Java']
+#explode function to highlight the specific label
+explode = [0,0,0,0.09,0]
+
+#shadow will give shadow image of the chart
+#autopct gives percantage of each label
+#startange starts the chart at the given angle
+#colors = ['#008fd5','#fc4f30','#e5ae37','#6d904f']
+
+plt.pie(slices, labels= labels,wedgeprops={'edgecolor': 'black'},explode = explode,shadow = True,startangle =90,autopct='%1.1f%%')
+
+
+plt.title("My pie chart")
+plt.tight_layout()
+plt.show()
