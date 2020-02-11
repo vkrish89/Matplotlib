@@ -1,0 +1,23 @@
+import matplotlib.pyplot as plt 
+#colours
+#Blue 	= #008fd5
+#Red 	= #fc4f30
+#Yellow = #e5ae37
+#Green 	= #6d904f
+
+plt.style.use('seaborn')
+
+minutes = [1,2,3,4,5,6,7,8]
+
+resource1 = [8, 6, 5, 5, 4, 2, 1, 1]
+resource2 = [0, 1, 2, 2, 2, 4, 4, 4]
+resource3 = [0, 1, 1, 1, 2, 2, 3, 3]
+
+labels=('Vinoth','Siva','Shankar')
+colors = ('#fc4f30','#e5ae37','#008fd5')
+plt.stackplot(minutes,resource1,resource2,resource3,colors=colors,labels = labels)
+
+plt.legend(loc=(0.07,0.05))
+
+plt.tight_layout()
+plt.show()
