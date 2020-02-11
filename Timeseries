@@ -1,0 +1,46 @@
+#Example - Using line plot with time and date paramters
+#Functionalities used : gcf() - to align the axis values 
+#set_major_formatter() - to format the date and time values.
+
+import matplotlib.pyplot as plt 
+import pandas as pd 
+from datetime import datetime, timedelta
+from matplotlib import dates as mpl_dates 
+
+plt.style.use('seaborn')
+
+#testdata
+'''
+dates = [datetime(2020,2,8),datetime(2020,2,9),datetime(2020,2,10),datetime(2020,2,11),datetime(2020,2,12)]
+Y = [10,20,30,40,50]
+
+plt.plot_date(dates,Y,linestyle ='solid')
+
+#to align x axis values in a proper style
+plt.gcf().autofmt_xdate()
+
+date_format = mpl_dates.DateFormatter('%b, %d %Y')
+plt.gca().xaxis.set_major_formatter(date_format)
+'''
+
+data_read = pd.read_csv('data5.csv')
+price_date = data_read['Date']
+openp = data_read['Open']
+closep = data_read['Close']
+
+
+#sorting the date 
+data_read['Date'] = pd.to_datetime(data_read['Date'])
+data_read.sort_values('Date',inplace=True)
+
+
+plt.plot_date(price_date,openp,linestyle='solid')
+plt.gcf().autofmt_xdate()
+
+plt.title("Bitcoin prices")
+plt.xlabel("Dates")
+plt.ylabel("Prices")
+
+plt.tight_layout()
+plt.show()
+
