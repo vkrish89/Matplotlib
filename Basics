@@ -1,0 +1,30 @@
+import matplotlib.pyplot as plt 
+import pandas as pd 
+
+dataread 	= pd.read_csv('data6.csv')
+
+Age 	 	= dataread['Age']
+All_Devs 	= dataread['All_Devs']
+Python   	= dataread['Python']
+JavaScript	= dataread['JavaScript']
+
+
+fig, (ax1,ax2) = plt.subplots(nrows=2,ncols=1,sharex=True)
+
+ax1.plot(Age,All_Devs,label='All_Devs Salary')
+ax2.plot(Age,Python,label='Python Salary')
+
+
+
+ax1.set_title('Salary comparison')
+ax1.set_xlabel('Age')
+ax1.set_ylabel('All_Devs')
+ax1.legend()
+
+ax2.set_title('Salary comparison')
+ax2.set_xlabel('Age')
+ax2.set_ylabel('Python')
+ax2.legend()
+
+plt.tight_layout()
+plt.show()
